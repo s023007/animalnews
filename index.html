@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>الوحدة الثانية — الصفحة ٩</title>
+
+<style>
+  :root{
+    --bg:#f6f7fb; --card:#fff; --b:#e5e7eb; --ink:#111; --muted:#555;
+    --soft:#eef2ff; --soft2:#ecfdf5; --warn:#fff7ed; --warnb:#fed7aa;
+    --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.07);
+  }
+  body{margin:0;font-family:Tahoma, Arial, sans-serif;background:var(--bg);color:var(--ink);line-height:2;}
+  .container{max-width:1000px;margin:auto;padding:14px;}
+  header{
+    position:sticky;top:10px;z-index:10;
+    background:var(--card);border:1px solid var(--b);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:12px 14px;
+  }
+  .row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+  .title{font-size:18px;font-weight:700;}
+  .sub{font-size:13px;color:var(--muted);margin-top:4px;}
+  .btn{
+    background:#fff;border:1px solid var(--b);border-radius:999px;
+    padding:8px 12px;font-size:13px;cursor:pointer;text-decoration:none;color:var(--ink);
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .page{
+    margin-top:14px;background:var(--card);border:1px solid var(--b);
+    border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;
+  }
+  .pageHead{
+    padding:12px 14px;border-bottom:1px solid var(--b);
+    display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    background:linear-gradient(90deg,#fff,#f8fafc);
+  }
+  .pageHead h2{margin:0;font-size:18px;}
+  .badge{font-size:12px;background:#f1f5f9;border:1px solid var(--b);padding:6px 10px;border-radius:999px;color:#334155}
+  .content{padding:14px;}
+  .q{
+    background:#fff;border:1px solid var(--b);border-radius:14px;
+    padding:12px;margin-bottom:12px;
+  }
+  .qTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+  .qNo{font-size:16px;font-weight:700;}
+  .tag{font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--b);background:#f8fafc;}
+  .tag.small{font-size:11px}
+  .box{background:var(--soft);border:1px solid #dbe4ff;border-radius:12px;padding:10px 12px;margin-top:8px;}
+  .box.green{background:var(--soft2);border-color:#bbf7d0;}
+  .note{background:var(--warn);border:1px solid var(--warnb);border-radius:12px;padding:10px 12px;margin-top:8px;}
+  .answer{font-weight:700;margin-top:6px;}
+  .muted{color:var(--muted);}
+  ul.steps{margin:8px 0 0;padding:0 18px;}
+  .svgCard{border:1px solid var(--b);border-radius:14px;padding:10px;background:#fff;margin-top:10px;}
+  .pill{display:inline-block;border:1px solid var(--b);background:#f8fafc;border-radius:999px;padding:2px 10px;font-size:12px;color:#334155;margin:6px 0;}
+  .hr{height:1px;background:var(--b);margin:12px 0;}
+
+  /* كسر احترافي */
+  .frac{display:inline-block;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .12em;}
+  .frac .top{display:block;padding:0 .3em;}
+  .frac .bar{display:block;border-top:2px solid #111;margin:.08em .12em;}
+  .frac .bottom{display:block;padding:0 .3em;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="row">
+    <div>
+      <div class="title">الوحدة الثانية — الصفحة التاسعة</div>
+      <div class="sub">تصميم بطاقات + شرح واضح + أرقام هندية تلقائيًا</div>
+    </div>
+    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">أعلى</a>
+  </div>
+</header>
+
+<section class="page" id="p9">
+  <div class="pageHead">
+    <h2>الصفحة ٩</h2>
+    <div class="badge">نوع العلاقة + المجال والمدى من الرسم</div>
+  </div>
+
+  <div class="content">
+
+    <!-- السؤال 4 -->
+    <article class="q">
+      <div class="qTitle">
+        <div class="qNo">السؤال ٤</div>
+        <div class="tag small">نوع العلاقة</div>
+      </div>
+
+      <div class="box">
+        <div class="muted">الدالة: د(س) = س² + ١ ، حيث س ∈ ح</div>
+        <ul class="steps">
+          <li>هذه دالة تربيعية مفتوحة لأعلى.</li>
+          <li>إذا أخذنا قيمتين: س = ٢ و س = −٢ فإن:</li>
+          <li>د(٢) = ٥ و د(−٢) = ٥ ⇒ <b>نفس المخرج</b> من <b>مدخلين مختلفين</b>.</li>
+        </ul>
+        <div class="answer">إذن نوع العلاقة: <b>متعدد إلى واحد</b>.</div>
+      </div>
+
+      <div class="note">
+        ملاحظة للطالب: التربيعية على جميع الأعداد الحقيقية غالبًا تكون <b>متعدد إلى واحد</b> (إلا إذا قُيِّد المجال).
+      </div>
+    </article>
+
+    <!-- السؤال 5 -->
+    <article class="q">
+      <div class="qTitle">
+        <div class="qNo">السؤال ٥</div>
+        <div class="tag small">نوع العلاقة</div>
+      </div>
+
+      <div class="box green">
+        <div class="muted">الدالة: د(س) = ٢س² − ٤ ، حيث س ∈ ح ، و س ≥ ٠</div>
+        <ul class="steps">
+          <li>هنا المجال مقيد: س ≥ ٠ (نصف المنحنى فقط).</li>
+          <li>في هذه المنطقة الدالة <b>تزداد</b> باستمرار ⇒ لا يمكن لمدخلين مختلفين أن يعطيا نفس المخرج.</li>
+        </ul>
+        <div class="answer">إذن نوع العلاقة: <b>واحد إلى واحد</b>.</div>
+      </div>
+    </article>
+
+    <!-- السؤال 6 -->
+    <article class="q">
+      <div class="qTitle">
+        <div class="qNo">السؤال ٦</div>
+        <div class="tag small">المجال والمدى من الرسم</div>
+      </div>
+
+      <div class="box">
+        <div class="muted">الطريقة السريعة:</div>
+        <ul class="steps">
+          <li><b>المجال</b>: ننظر لأصغر قيمة س وأكبر قيمة س على الرسم.</li>
+          <li><b>المدى</b>: ننظر لأصغر قيمة ص وأكبر قيمة ص على الرسم.</li>
+          <li>طالما النقاط <b>ممتلئة</b> (●) ⇒ القيم <b>مشمولة</b> (≤ / ≥).</li>
+        </ul>
+      </div>
+
+      <div class="hr"></div>
+
+      <!-- (أ) -->
+      <div class="box green">
+        <div class="pill">(أ)</div>
+        <ul class="steps">
+          <li>من الرسم توجد نقطتا نهاية للقطعة المستقيمة.</li>
+          <li>أصغر س = −٥ ، وأكبر س = ٦</li>
+          <li>أصغر ص = −٣ ، وأكبر ص = ٩</li>
+        </ul>
+        <div class="answer">المجال: −٥ ≤ س ≤ ٦ ، المدى: −٣ ≤ ص ≤ ٩</div>
+      </div>
+
+      <!-- (ب) -->
+      <div class="box">
+        <div class="pill">(ب)</div>
+        <ul class="steps">
+          <li>النقطة اليسرى عند س = −٢ ، والنقطة اليمنى عند س = ١٠</li>
+          <li>أكبر قيمة ص تظهر عند قمة المنحنى: ص = ٩</li>
+          <li>أصغر قيمة ص عند النقطة اليمنى: ص = −٥</li>
+        </ul>
+        <div class="answer">المجال: −٢ ≤ س ≤ ١٠ ، المدى: −٥ ≤ ص ≤ ٩</div>
+        <div class="note">إذا لاحظت في كتابك أن القيم مكتوبة بشكل (٩ ،٣) فاقرأها كـ (س ، ص) حسب اتجاه الطباعة في الورقة.</div>
+      </div>
+
+      <!-- (ج) -->
+      <div class="box green">
+        <div class="pill">(ج)</div>
+        <ul class="steps">
+          <li>الرسم يبدأ من س = −٤ وينتهي عند س = ٣</li>
+          <li>أكبر ص عند القمة: ص = ٥</li>
+          <li>أصغر ص عند القاع: ص = −٢</li>
+        </ul>
+        <div class="answer">المجال: −٤ ≤ س ≤ ٣ ، المدى: −٢ ≤ ص ≤ ٥</div>
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+<!-- تحويل الأرقام الإنجليزية إلى أرقام هندية تلقائيًا -->
+<script>
+(function(){
+  const map = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+  function convert(node){
+    if(node.nodeType===3){
+      node.nodeValue = node.nodeValue.replace(/[0-9]/g, d => map[d]);
+    } else if(node.nodeType===1){
+      for(const ch of node.childNodes) convert(ch);
+    }
+  }
+  convert(document.body);
+})();
+</script>
+
+</div>
+</body>
+</html>
