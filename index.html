@@ -1,231 +1,593 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>الوحدة الثانية — الصفحة العاشرة</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مراجعة رياضيات - الوحدة الثانية (ص 8 إلى 18)</title>
 
-<style>
-  :root{
-    --bg:#f6f7fb; --card:#fff; --b:#e5e7eb; --ink:#111; --muted:#555;
-    --soft:#eef2ff; --soft2:#ecfdf5; --warn:#fff7ed; --warnb:#fed7aa;
-    --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.07);
-  }
-  body{margin:0;font-family:Tahoma, Arial, sans-serif;background:var(--bg);color:var(--ink);line-height:2;}
-  .container{max-width:1000px;margin:auto;padding:14px;}
-  header{
-    position:sticky;top:10px;z-index:10;
-    background:var(--card);border:1px solid var(--b);border-radius:var(--radius);
-    box-shadow:var(--shadow);padding:12px 14px;
-  }
-  .row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
-  .title{font-size:18px;font-weight:700;}
-  .sub{font-size:13px;color:var(--muted);margin-top:4px;}
-  .btn{
-    background:#fff;border:1px solid var(--b);border-radius:999px;
-    padding:8px 12px;font-size:13px;cursor:pointer;text-decoration:none;color:var(--ink);
-  }
-  .btn:hover{transform:translateY(-1px);}
-  .page{
-    margin-top:14px;background:var(--card);border:1px solid var(--b);
-    border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;
-  }
-  .pageHead{
-    padding:12px 14px;border-bottom:1px solid var(--b);
-    display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-    background:linear-gradient(90deg,#fff,#f8fafc);
-  }
-  .pageHead h2{margin:0;font-size:18px;}
-  .badge{font-size:12px;background:#f1f5f9;border:1px solid var(--b);padding:6px 10px;border-radius:999px;color:#334155}
-  .content{padding:14px;}
-  .q{
-    background:#fff;border:1px solid var(--b);border-radius:14px;
-    padding:12px;margin-bottom:12px;
-  }
-  .qTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
-  .qNo{font-size:16px;font-weight:700;}
-  .tag{font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--b);background:#f8fafc;}
-  .box{background:var(--soft);border:1px solid #dbe4ff;border-radius:12px;padding:10px 12px;margin-top:8px;}
-  .box.green{background:var(--soft2);border-color:#bbf7d0;}
-  .note{background:var(--warn);border:1px solid var(--warnb);border-radius:12px;padding:10px 12px;margin-top:8px;}
-  .answer{font-weight:700;margin-top:8px;}
-  .muted{color:var(--muted);}
-  ul.steps{margin:8px 0 0;padding:0 18px;}
-  .svgCard{border:1px solid var(--b);border-radius:14px;padding:10px;background:#fff;margin-top:10px;}
-  .cap{font-size:12px;color:var(--muted);margin-top:6px;}
-  .pill{display:inline-block;border:1px solid var(--b);background:#f8fafc;border-radius:999px;padding:2px 10px;font-size:12px;color:#334155;margin:6px 0;}
-  .hr{height:1px;background:var(--b);margin:12px 0;}
-  .eq{display:block;background:#fff;border:1px dashed #cbd5e1;border-radius:12px;padding:10px 12px;margin-top:10px}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  /* كسر احترافي */
-  .frac{display:inline-block;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .12em;}
-  .frac .top{display:block;padding:0 .3em;}
-  .frac .bar{display:block;border-top:2px solid #111;margin:.08em .12em;}
-  .frac .bottom{display:block;padding:0 .3em;}
+  <!-- KaTeX for perfect radicals + vectors -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
-  /* ✅ جذر احترافي (مع عصا فوق مثل اللي تريدها) */
-  .root{
-    display:inline-flex;
-    align-items:flex-end;
-    vertical-align:middle;
-    margin:0 .12em;
-    font-variant-numeric: normal;
-  }
-  .root .radical{
-    font-size:1.25em;
-    line-height:1;
-    transform:translateY(1px);
-    padding-left:.06em;
-  }
-  .root .radicand{
-    display:inline-block;
-    padding:0 .35em .08em .35em;
-    border-top:2.4px solid #111; /* العصا فوق */
-    margin-right:.08em;
-    line-height:1.2;
-  }
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#121826;
+      --muted:#5b6475;
+      --line:#e6e8ef;
+      --accent:#2b6cb0;
+      --accent2:#14b8a6;
+      --warn:#f59e0b;
+      --ok:#22c55e;
+      --shadow: 0 10px 25px rgba(16,24,40,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Cairo", system-ui, -apple-system, Segoe UI, Arial;
+      background: radial-gradient(1200px 500px at 80% -50%, rgba(43,108,176,.18), transparent),
+                  radial-gradient(800px 400px at 10% -30%, rgba(20,184,166,.18), transparent),
+                  var(--bg);
+      color:var(--text);
+    }
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(246,247,251,.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .wrap{max-width:980px; margin:auto; padding:14px 16px;}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .logo:after{
+      content:"∑";
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      font-weight:800; color:white; font-size:22px;
+    }
+    .title h1{
+      margin:0; font-size:18px; line-height:1.25;
+    }
+    .title p{
+      margin:0; color:var(--muted); font-size:13px;
+    }
+    .teacher{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      box-shadow: 0 6px 16px rgba(16,24,40,.06);
+      font-size:13px;
+      color:var(--muted);
+      display:flex; gap:8px; align-items:center;
+    }
+    .pill b{color:var(--text)}
+    .nav{
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;
+    }
+    .nav a{
+      text-decoration:none;
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:13px;
+      color:var(--text);
+      transition:.15s;
+    }
+    .nav a:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+    .hero{
+      padding:18px 16px 6px;
+    }
+    .heroCard{
+      max-width:980px; margin:0 auto;
+      background: linear-gradient(135deg, rgba(43,108,176,.10), rgba(20,184,166,.10));
+      border:1px solid rgba(43,108,176,.18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .heroCard h2{margin:0 0 6px; font-size:20px}
+    .heroCard p{margin:0; color:var(--muted)}
+    main{max-width:980px; margin:auto; padding:12px 16px 70px;}
+    .page{
+      margin-top:14px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .pageHeader{
+      display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+      padding:14px 14px;
+      border-bottom:1px dashed var(--line);
+      background: rgba(255,255,255,.7);
+    }
+    .pageHeader h3{margin:0; font-size:18px}
+    .pageHeader .meta{color:var(--muted); font-size:13px}
+    .q{
+      padding:14px;
+      border-top:1px solid var(--line);
+    }
+    .q:first-child{border-top:none}
+    .qTitle{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;
+    }
+    .qTitle h4{margin:0; font-size:16px}
+    .badge{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      background:#fbfbfe;
+      padding:5px 9px;
+      border-radius:999px;
+    }
+    .prompt{
+      margin:10px 0 0;
+      padding:12px;
+      border-radius:14px;
+      background:#fbfcff;
+      border:1px solid var(--line);
+      color:#1f2937;
+    }
+    details{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background: #fff;
+    }
+    summary{
+      cursor:pointer;
+      padding:10px 12px;
+      background: linear-gradient(135deg, rgba(43,108,176,.08), rgba(20,184,166,.08));
+      font-weight:700;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .ans{
+      padding:12px;
+      border-top:1px solid var(--line);
+      color:#111827;
+    }
+    .grid2{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 780px){
+      .grid2{grid-template-columns: 1fr 1fr;}
+    }
 
-  /* حركة خطوط الاختبار */
-  .vline{animation:slideX 2.2s infinite alternate ease-in-out;}
-  @keyframes slideX{from{transform:translateX(0)}to{transform:translateX(120px)}}
-  .hline{animation:slideY 2.2s infinite alternate ease-in-out;}
-  @keyframes slideY{from{transform:translateY(0)}to{transform:translateY(40px)}}
+    /* Visual box */
+    .visual{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: #ffffff;
+      overflow:hidden;
+    }
+    .visualHead{
+      padding:10px 12px;
+      border-bottom:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .visualBody{padding:10px 12px}
 
-  /* لمعان نقطة */
-  .dot{animation:pulse 1.4s infinite;}
-  @keyframes pulse{0%{opacity:1}50%{opacity:.25}100%{opacity:1}}
-</style>
+    /* SVG helper styles */
+    .svgWrap{width:100%; overflow:auto}
+    svg{max-width:100%; height:auto}
+    .btnRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .btn{
+      border:none; cursor:pointer;
+      padding:10px 12px;
+      border-radius:12px;
+      background: var(--accent);
+      color:white; font-weight:700;
+      box-shadow: 0 10px 18px rgba(43,108,176,.18);
+      transition:.15s;
+    }
+    .btn.secondary{background:#111827}
+    .btn.ghost{
+      background:transparent; color:var(--text);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .foot{
+      position:fixed; bottom:14px; left:14px;
+      display:flex; gap:10px; z-index:60;
+    }
+    .float{
+      border:none; cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      background:#111827;
+      color:white; font-weight:700;
+      box-shadow: var(--shadow);
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
 
-<header id="top">
-  <div class="row">
-    <div>
-      <div class="title">الوحدة الثانية — الصفحة العاشرة</div>
-      <div class="sub">علاقات (واحد-واحد/متعدد-واحد/واحد-متعدد) + تركيب دوال (شرح مرئي + جبري)</div>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="title">
+          <h1>مراجعة الاختبار النهائي — الوحدة الثانية (صفحات ٨ إلى ١٨)</h1>
+          <p>العلاقات • المجال والمدى • الدوال العكسية • التحويلات • تركيب الدوال</p>
+        </div>
+      </div>
+      <div class="teacher">
+        <div class="pill">إعداد الأستاذ: <b>زايد الرواحي</b></div>
+        <div class="pill">تنسيق: <b>حلول + شرح مرئي</b></div>
+      </div>
     </div>
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">أعلى</a>
+
+    <nav class="nav" aria-label="صفحات">
+      <a href="#p8">ص٨</a><a href="#p9">ص٩</a><a href="#p10">ص١٠</a><a href="#p11">ص١١</a>
+      <a href="#p12">ص١٢</a><a href="#p13">ص١٣</a><a href="#p14">ص١٤</a><a href="#p15">ص١٥</a>
+      <a href="#p16">ص١٦</a><a href="#p17">ص١٧</a><a href="#p18">ص١٨</a>
+    </nav>
   </div>
 </header>
 
-<section class="page" id="p10">
-  <div class="pageHead">
-    <h2>الوحدة الثانية — الصفحة العاشرة</h2>
-    <div class="badge">اختبار الخط الرأسي/الأفقي + تركيب دوال</div>
-  </div>
-
-  <div class="content">
-
-    <!-- س4 فقط (التعديل المطلوب هنا) -->
-    <article class="q">
-      <div class="qTitle">
-        <div class="qNo">السؤال ٤</div>
-        <div class="tag">تركيب دوال — طريقتان</div>
-      </div>
-
-      <div class="box green">
-        <div class="muted">المعطى:</div>
-        <ul class="steps">
-          <li>د(س) = س² − ١</li>
-          <li>هـ(س) = <span class="root"><span class="radical">√</span><span class="radicand">(س + ١)</span></span></li>
-          <li>أوجد (د∘هـ)(٣)</li>
-        </ul>
-
-        <div class="note">
-          <b>مهم:</b> (د∘هـ)(س) = د(هـ(س))  
-          يعني: نطبق <b>هـ</b> أولًا ثم نضع الناتج داخل <b>د</b>.
-        </div>
-
-        <!-- الطريقة الأولى (الرمزية العامة) -->
-        <div class="eq">
-          <b>الطريقة الأولى (بالصورة العامة):</b>
-          <ul class="steps">
-            <li>(د∘هـ)(س) = د(هـ(س))</li>
-            <li>د(هـ(س)) = (هـ(س))² − ١</li>
-            <li>= ( <span class="root"><span class="radical">√</span><span class="radicand">(س + ١)</span></span> )² − ١</li>
-            <li>= (س + ١) − ١</li>
-            <li>= س</li>
-          </ul>
-          <div class="answer">إذن: (د∘هـ)(س) = س ⇒ (د∘هـ)(٣) = ٣</div>
-        </div>
-
-        <div class="hr"></div>
-
-        <!-- ✅ الطريقة الثانية (اللي طلبتها: عوّض في هـ ثم د الناتج) -->
-        <div class="eq">
-          <b>الطريقة الثانية (المفضلة عند كثير من الطلاب):</b>
-          <div class="muted">نعوّض أولًا في هـ(س)، ثم نضع الناتج داخل د(س).</div>
-
-          <ul class="steps">
-            <li><b>١)</b> نحسب هـ(٣):  
-              هـ(٣) =
-              <span class="root"><span class="radical">√</span><span class="radicand">(٣ + ١)</span></span>
-              =
-              <span class="root"><span class="radical">√</span><span class="radicand">٤</span></span>
-              = ٢
-            </li>
-
-            <li><b>٢)</b> الآن نضع الناتج داخل د:  
-              د(هـ(٣)) = د(٢) = ٢² − ١ = ٤ − ١ = ٣
-            </li>
-          </ul>
-
-          <div class="answer">النتيجة النهائية: (د∘هـ)(٣) = ٣</div>
-        </div>
-
-        <!-- رسم مرئي للتأكيد -->
-        <div class="svgCard">
-          <div class="pill">شرح مرئي (للتأكيد)</div>
-          <svg width="520" height="220" viewBox="0 0 520 220" aria-label="composition machine">
-            <rect x="60" y="60" width="170" height="90" rx="14" fill="#eef2ff" stroke="#c7d2fe"/>
-            <text x="145" y="95" font-size="16" text-anchor="middle" fill="#111">هـ(س) = √(س + ١)</text>
-
-            <line x1="230" y1="105" x2="290" y2="105" stroke="#111" stroke-width="3"/>
-            <polygon points="290,105 278,98 278,112" fill="#111"/>
-
-            <rect x="290" y="60" width="170" height="90" rx="14" fill="#ecfdf5" stroke="#bbf7d0"/>
-            <text x="375" y="95" font-size="16" text-anchor="middle" fill="#111">د(س) = س² − ١</text>
-
-            <text x="40" y="112" font-size="16">٣</text>
-            <line x1="45" y1="105" x2="60" y2="105" stroke="#111" stroke-width="3"/>
-
-            <line x1="460" y1="105" x2="490" y2="105" stroke="#111" stroke-width="3"/>
-            <polygon points="490,105 478,98 478,112" fill="#111"/>
-            <text x="500" y="112" font-size="16">٣</text>
-
-            <text x="60" y="185" font-size="15" fill="#334155">هـ(٣)=√(٤)=٢</text>
-            <text x="60" y="205" font-size="15" fill="#334155">د(٢)=٢²−١=٣</text>
-
-            <circle class="dot" cx="55" cy="105" r="6" fill="#dc2626"/>
-            <circle class="dot" cx="250" cy="105" r="6" fill="#dc2626"/>
-            <circle class="dot" cx="470" cy="105" r="6" fill="#dc2626"/>
-          </svg>
-          <div class="cap">الآلة توضح نفس الفكرة: ندخل ٣ في هـ ثم الناتج يدخل د ونحصل ٣.</div>
-        </div>
-
-      </div>
-    </article>
-
+<section class="hero">
+  <div class="heroCard">
+    <h2>ملاحظة مهمة للطالب</h2>
+    <p>استخدمنا الجذر بالشكل الصحيح \\(\\sqrt{\\,}\\) والمتجه عموديًا \\(\\begin{pmatrix}س\\\\ص\\end{pmatrix}\\). افتح كل سؤال ثم اضغط “إظهار الحل”.</p>
+    <div class="btnRow">
+      <button class="btn ghost" onclick="expandAll(true)">فتح كل الحلول</button>
+      <button class="btn ghost" onclick="expandAll(false)">إغلاق كل الحلول</button>
+    </div>
   </div>
 </section>
 
-<!-- تحويل الأرقام الإنجليزية إلى أرقام هندية تلقائيًا -->
+<main>
+
+  <!-- =========================
+       صفحة 8
+  ========================== -->
+  <section class="page" id="p8">
+    <div class="pageHeader">
+      <h3>الصفحة ٨</h3>
+      <div class="meta">ترقيم داخلي فقط (س١، س٢...)</div>
+    </div>
+
+    <!-- س1 -->
+    <div class="q">
+      <div class="qTitle">
+        <h4>السؤال ١</h4>
+        <span class="badge">اختر الإجابة الصحيحة</span>
+      </div>
+      <div class="prompt">
+        ✍️ ضع نص السؤال هنا كما في الورقة (من الصفحة ٨).
+      </div>
+
+      <details>
+        <summary>إظهار الحل</summary>
+        <div class="ans">
+          ✅ <b>الإجابة:</b> …………<br/>
+          ✅ <b>السبب المختصر:</b> …………<br/>
+          <div class="visual">
+            <div class="visualHead">شرح مرئي (مثال توضيحي)</div>
+            <div class="visualBody">
+              <div class="svgWrap">
+                <svg viewBox="0 0 520 180" role="img" aria-label="Relation mapping">
+                  <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <path d="M0,0 L10,3 L0,6 Z"></path>
+                    </marker>
+                  </defs>
+                  <rect x="40" y="25" width="160" height="130" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="320" y="25" width="160" height="130" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="120" y="50" text-anchor="middle" font-size="16">المجال</text>
+                  <text x="400" y="50" text-anchor="middle" font-size="16">المدى</text>
+
+                  <circle cx="90" cy="85" r="7"/>
+                  <circle cx="90" cy="120" r="7"/>
+                  <circle cx="90" cy="155" r="7"/>
+
+                  <circle cx="370" cy="90" r="7"/>
+                  <circle cx="370" cy="130" r="7"/>
+
+                  <path d="M98 85 C 190 85, 260 90, 362 90" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+                  <path d="M98 120 C 190 120, 260 130, 362 130" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+                  <path d="M98 155 C 190 155, 260 130, 362 130" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+                </svg>
+              </div>
+              <div style="color:#6b7280; font-size:13px; margin-top:6px;">
+                مثال يوضح “متعدد إلى واحد” (أكثر من عنصر في المجال يذهب لنفس عنصر في المدى).
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <!-- س2 -->
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٢</h4><span class="badge">اختر</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details><summary>إظهار الحل</summary><div class="ans">✅ الإجابة: …………</div></details>
+    </div>
+
+    <!-- س3 ... -->
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٣</h4><span class="badge">اختر</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details><summary>إظهار الحل</summary><div class="ans">✅ الإجابة: …………</div></details>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٤</h4><span class="badge">اختر</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details><summary>إظهار الحل</summary><div class="ans">✅ الإجابة: …………</div></details>
+    </div>
+
+  </section>
+
+  <!-- =========================
+       صفحة 9 (أضفنا تركيز مرئي)
+  ========================== -->
+  <section class="page" id="p9">
+    <div class="pageHeader">
+      <h3>الصفحة ٩</h3>
+      <div class="meta">شرح مرئي + اختبار رأسي/أفقي</div>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ١</h4><span class="badge">علاقات</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+
+      <details>
+        <summary>إظهار الحل + شرح مرئي متحرك</summary>
+        <div class="ans">
+          ✅ <b>الفكرة:</b> نستخدم الاختبار المناسب (رأسي للدالة، أفقي لواحد-لواحد).<br/><br/>
+
+          <div class="visual">
+            <div class="visualHead">رسم توضيحي (اضغط تشغيل)</div>
+            <div class="visualBody">
+              <div class="btnRow">
+                <button class="btn" onclick="playLineTest()">تشغيل الحركة</button>
+                <button class="btn ghost" onclick="resetLineTest()">إعادة</button>
+              </div>
+
+              <div class="svgWrap" style="margin-top:10px;">
+                <svg id="lineTestSvg" viewBox="0 0 520 260">
+                  <!-- axes -->
+                  <path d="M60 220 L500 220" stroke="#cbd5e1" stroke-width="2"/>
+                  <path d="M280 30 L280 240" stroke="#cbd5e1" stroke-width="2"/>
+
+                  <!-- curve (parabola-like) -->
+                  <path d="M130 80 C 220 240, 340 240, 430 80" fill="none" stroke="#111827" stroke-width="3"/>
+
+                  <!-- moving line -->
+                  <line id="testLine" x1="90" y1="140" x2="470" y2="140" stroke="#ef4444" stroke-width="3" stroke-dasharray="7 6" opacity="0.9"/>
+                  <text x="90" y="30" font-size="14" fill="#6b7280">الخط المتحرك = اختبار أفقي (واحد-لواحد)</text>
+                </svg>
+              </div>
+              <div style="color:#6b7280; font-size:13px; margin-top:6px;">
+                إذا قطع المنحنى في نقطتين أو أكثر ⇒ ليس واحدًا إلى واحد.
+              </div>
+            </div>
+          </div>
+
+          ✅ <b>الإجابة النهائية:</b> ………… (ضعها هنا)
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- =========================
+       صفحة 10
+  ========================== -->
+  <section class="page" id="p10">
+    <div class="pageHeader">
+      <h3>الصفحة ١٠</h3>
+      <div class="meta">تركيب دوال (مرئي + جبري)</div>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ١</h4><span class="badge">تركيب</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details>
+        <summary>إظهار الحل</summary>
+        <div class="ans">
+          ✅ <b>قاعدة مهمة:</b> \\, (د∘هـ)(س) = د(هـ(س))<br/><br/>
+          ✅ ضع الحل هنا خطوة خطوة.  
+        </div>
+      </details>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٤ (مهم)</h4><span class="badge">حل جبري مفصل + طريقة التعويض</span></div>
+      <div class="prompt">
+        ✍️ ضع نص السؤال الرابع هنا (كما في ورقتك).
+      </div>
+
+      <details open>
+        <summary>إظهار الحل (طريقتين)</summary>
+        <div class="ans">
+
+          <div class="grid2">
+            <div>
+              <b>الطريقة (١): كتابة تركيب الدالتين مباشرة</b><br/>
+              1) نكتب: \\, (د∘هـ)(س)=د(هـ(س))<br/>
+              2) نعوّض عن هـ(س) داخل د(س).<br/>
+              3) نبسّط ثم نعوّض س بالقيمة المطلوبة.<br/><br/>
+              ✅ <b>الحل:</b> ضع خطواتك هنا.
+            </div>
+
+            <div>
+              <b>الطريقة (٢): التعويض أولاً ثم تطبيق د</b><br/>
+              1) احسب هـ(القيمة) أولاً.<br/>
+              2) الناتج أدخله في د(…):<br/>
+              \\, (د∘هـ)(٣)=د(هـ(٣))<br/><br/>
+              ✅ <b>الحل:</b> ضع خطواتك هنا.
+            </div>
+          </div>
+
+          <div class="visual" style="margin-top:12px;">
+            <div class="visualHead">مخطط سريع للفكرة</div>
+            <div class="visualBody">
+              <div class="svgWrap">
+                <svg viewBox="0 0 520 120">
+                  <defs>
+                    <marker id="a2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <path d="M0,0 L10,3 L0,6 Z"></path>
+                    </marker>
+                  </defs>
+                  <rect x="40" y="35" width="120" height="50" rx="14" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="200" y="35" width="120" height="50" rx="14" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="360" y="35" width="120" height="50" rx="14" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="100" y="67" text-anchor="middle" font-size="16">س</text>
+                  <text x="260" y="67" text-anchor="middle" font-size="16">هـ(س)</text>
+                  <text x="420" y="67" text-anchor="middle" font-size="16">د(هـ(س))</text>
+                  <path d="M160 60 L200 60" fill="none" stroke="#111827" stroke-width="3" marker-end="url(#a2)"/>
+                  <path d="M320 60 L360 60" fill="none" stroke="#111827" stroke-width="3" marker-end="url(#a2)"/>
+                  <text x="180" y="30" font-size="13" fill="#6b7280">تطبيق هـ</text>
+                  <text x="340" y="30" font-size="13" fill="#6b7280">ثم تطبيق د</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+  </section>
+
+  <!-- =========================
+       صفحات 11 إلى 18 (هياكل جاهزة)
+       فقط انسخ نص كل سؤال من الورقة والصقه
+  ========================== -->
+  <section class="page" id="p11">
+    <div class="pageHeader"><h3>الصفحة ١١</h3><div class="meta">ضع نص الأسئلة ثم الحلول</div></div>
+
+    <!-- مثال سؤال مع متجه عمودي -->
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ١</h4><span class="badge">متجه</span></div>
+      <div class="prompt">
+        ✍️ ضع نص السؤال هنا (لو فيه متجه اكتب داخل حلّك مثل: \\(\\begin{pmatrix}س\\\\ص\\end{pmatrix}\\))
+      </div>
+      <details><summary>إظهار الحل</summary>
+        <div class="ans">
+          ✅ مثال شكل المتجه المطلوب:
+          <div class="prompt" style="margin-top:8px;">
+            \\(\\begin{pmatrix} س \\\\ ص \\end{pmatrix}\\)
+          </div>
+          ✅ ضع الحل هنا…
+        </div>
+      </details>
+    </div>
+
+    <div class="q"><div class="qTitle"><h4>السؤال ٢</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ٣</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p12"><div class="pageHeader"><h3>الصفحة ١٢</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p13"><div class="pageHeader"><h3>الصفحة ١٣</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p14"><div class="pageHeader"><h3>الصفحة ١٤</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p15"><div class="pageHeader"><h3>الصفحة ١٥</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p16"><div class="pageHeader"><h3>الصفحة ١٦</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p17"><div class="pageHeader"><h3>الصفحة ١٧</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p18"><div class="pageHeader"><h3>الصفحة ١٨</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+</main>
+
+<div class="foot">
+  <button class="float" onclick="window.scrollTo({top:0, behavior:'smooth'})">أعلى</button>
+</div>
+
 <script>
-(function(){
-  const map = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
-  function convert(node){
-    if(node.nodeType===3){
-      node.nodeValue = node.nodeValue.replace(/[0-9]/g, d => map[d]);
-    } else if(node.nodeType===1){
-      for(const ch of node.childNodes) convert(ch);
-    }
+  // Render KaTeX
+  window.addEventListener("load", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\\\(", right: "\\\\)", display: false},
+        {left: "\\\\[", right: "\\\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  });
+
+  function expandAll(open){
+    document.querySelectorAll("details").forEach(d => d.open = open);
   }
-  convert(document.body);
-})();
+
+  // Simple animated horizontal line for line test
+  let anim = null;
+  function playLineTest(){
+    const line = document.getElementById("testLine");
+    if(!line) return;
+    resetLineTest();
+    let y = 90;
+    anim = setInterval(() => {
+      y += 2;
+      line.setAttribute("y1", y);
+      line.setAttribute("y2", y);
+      if(y >= 195){ clearInterval(anim); anim=null; }
+    }, 16);
+  }
+  function resetLineTest(){
+    const line = document.getElementById("testLine");
+    if(!line) return;
+    if(anim){ clearInterval(anim); anim=null; }
+    line.setAttribute("y1", 140);
+    line.setAttribute("y2", 140);
+  }
 </script>
 
-</div>
 </body>
 </html>
