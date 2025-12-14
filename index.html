@@ -3,31 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>الوحدة الثانية (ص 8–18)</title>
+  <title>مراجعة رياضيات - الوحدة الثانية (ص 8 إلى 18)</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- KaTeX (جذور بالعصا + متجه عمودي) -->
+  <!-- KaTeX for perfect radicals + vectors -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
   <style>
-    body{margin:0;font-family:"Cairo",Arial;background:#f6f7fb;color:#111}
-    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;z-index:50}
-    .wrap{max-width:1000px;margin:auto;padding:12px 14px}
-    .top{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
-    .pill{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:8px 12px;font-size:13px}
-    nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    nav a{text-decoration:none;color:#111;border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:6px 10px;font-size:13px}
-    main{max-width:1000px;margin:auto;padding:14px}
-    .page{background:#fff;border:1px solid #e5e7eb;border-radius:16px;margin-top:14px;overflow:hidden}
-    .pageHeader{padding:12px 14px;border-bottom:1px dashed #e5e7eb;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-    .pageHeader h2{margin:0;font-size:18px}
-    .pageBody{padding:0}
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#121826;
+      --muted:#5b6475;
+      --line:#e6e8ef;
+      --accent:#2b6cb0;
+      --accent2:#14b8a6;
+      --warn:#f59e0b;
+      --ok:#22c55e;
+      --shadow: 0 10px 25px rgba(16,24,40,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Cairo", system-ui, -apple-system, Segoe UI, Arial;
+      background: radial-gradient(1200px 500px at 80% -50%, rgba(43,108,176,.18), transparent),
+                  radial-gradient(800px 400px at 10% -30%, rgba(20,184,166,.18), transparent),
+                  var(--bg);
+      color:var(--text);
+    }
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(246,247,251,.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .wrap{max-width:980px; margin:auto; padding:14px 16px;}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .logo:after{
+      content:"∑";
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      font-weight:800; color:white; font-size:22px;
+    }
+    .title h1{
+      margin:0; font-size:18px; line-height:1.25;
+    }
+    .title p{
+      margin:0; color:var(--muted); font-size:13px;
+    }
+    .teacher{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      box-shadow: 0 6px 16px rgba(16,24,40,.06);
+      font-size:13px;
+      color:var(--muted);
+      display:flex; gap:8px; align-items:center;
+    }
+    .pill b{color:var(--text)}
+    .nav{
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;
+    }
+    .nav a{
+      text-decoration:none;
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:13px;
+      color:var(--text);
+      transition:.15s;
+    }
+    .nav a:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+    .hero{
+      padding:18px 16px 6px;
+    }
+    .heroCard{
+      max-width:980px; margin:0 auto;
+      background: linear-gradient(135deg, rgba(43,108,176,.10), rgba(20,184,166,.10));
+      border:1px solid rgba(43,108,176,.18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .heroCard h2{margin:0 0 6px; font-size:20px}
+    .heroCard p{margin:0; color:var(--muted)}
+    main{max-width:980px; margin:auto; padding:12px 16px 70px;}
+    .page{
+      margin-top:14px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .pageHeader{
+      display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+      padding:14px 14px;
+      border-bottom:1px dashed var(--line);
+      background: rgba(255,255,255,.7);
+    }
+    .pageHeader h3{margin:0; font-size:18px}
+    .pageHeader .meta{color:var(--muted); font-size:13px}
+    .q{
+      padding:14px;
+      border-top:1px solid var(--line);
+    }
+    .q:first-child{border-top:none}
+    .qTitle{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;
+    }
+    .qTitle h4{margin:0; font-size:16px}
+    .badge{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      background:#fbfbfe;
+      padding:5px 9px;
+      border-radius:999px;
+    }
+    .prompt{
+      margin:10px 0 0;
+      padding:12px;
+      border-radius:14px;
+      background:#fbfcff;
+      border:1px solid var(--line);
+      color:#1f2937;
+    }
+    details{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background: #fff;
+    }
+    summary{
+      cursor:pointer;
+      padding:10px 12px;
+      background: linear-gradient(135deg, rgba(43,108,176,.08), rgba(20,184,166,.08));
+      font-weight:700;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .ans{
+      padding:12px;
+      border-top:1px solid var(--line);
+      color:#111827;
+    }
+    .grid2{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 780px){
+      .grid2{grid-template-columns: 1fr 1fr;}
+    }
+
+    /* Visual box */
+    .visual{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: #ffffff;
+      overflow:hidden;
+    }
+    .visualHead{
+      padding:10px 12px;
+      border-bottom:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .visualBody{padding:10px 12px}
+
+    /* SVG helper styles */
+    .svgWrap{width:100%; overflow:auto}
+    svg{max-width:100%; height:auto}
+    .btnRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .btn{
+      border:none; cursor:pointer;
+      padding:10px 12px;
+      border-radius:12px;
+      background: var(--accent);
+      color:white; font-weight:700;
+      box-shadow: 0 10px 18px rgba(43,108,176,.18);
+      transition:.15s;
+    }
+    .btn.secondary{background:#111827}
+    .btn.ghost{
+      background:transparent; color:var(--text);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .foot{
+      position:fixed; bottom:14px; left:14px;
+      display:flex; gap:10px; z-index:60;
+    }
+    .float{
+      border:none; cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      background:#111827;
+      color:white; font-weight:700;
+      box-shadow: var(--shadow);
+    }
   </style>
 </head>
 
@@ -35,76 +238,355 @@
 
 <header>
   <div class="wrap">
-    <div class="top">
-      <div class="pill"><b>الوحدة الثانية</b> — صفحات ٨ إلى ١٨</div>
-      <div class="pill">إعداد الأستاذ: <b>زايد الرواحي</b></div>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="title">
+          <h1>مراجعة الاختبار النهائي — الوحدة الثانية (صفحات ٨ إلى ١٨)</h1>
+          <p>العلاقات • المجال والمدى • الدوال العكسية • التحويلات • تركيب الدوال</p>
+        </div>
+      </div>
+      <div class="teacher">
+        <div class="pill">إعداد الأستاذ: <b>زايد الرواحي</b></div>
+        <div class="pill">تنسيق: <b>حلول + شرح مرئي</b></div>
+      </div>
     </div>
-    <nav>
-      <a href="#p8">ص٨</a>
-      <a href="#p9">ص٩</a>
-      <a href="#p10">ص١٠</a>
-      <a href="#p11">ص١١</a>
-      <a href="#p12">ص١٢</a>
-      <a href="#p13">ص١٣</a>
-      <a href="#p14">ص١٤</a>
-      <a href="#p15">ص١٥</a>
-      <a href="#p16">ص١٦</a>
-      <a href="#p17">ص١٧</a>
-      <a href="#p18">ص١٨</a>
+
+    <nav class="nav" aria-label="صفحات">
+      <a href="#p8">ص٨</a><a href="#p9">ص٩</a><a href="#p10">ص١٠</a><a href="#p11">ص١١</a>
+      <a href="#p12">ص١٢</a><a href="#p13">ص١٣</a><a href="#p14">ص١٤</a><a href="#p15">ص١٥</a>
+      <a href="#p16">ص١٦</a><a href="#p17">ص١٧</a><a href="#p18">ص١٨</a>
     </nav>
   </div>
 </header>
 
+<section class="hero">
+  <div class="heroCard">
+    <h2>ملاحظة مهمة للطالب</h2>
+    <p>استخدمنا الجذر بالشكل الصحيح \\(\\sqrt{\\,}\\) والمتجه عموديًا \\(\\begin{pmatrix}س\\\\ص\\end{pmatrix}\\). افتح كل سؤال ثم اضغط “إظهار الحل”.</p>
+    <div class="btnRow">
+      <button class="btn ghost" onclick="expandAll(true)">فتح كل الحلول</button>
+      <button class="btn ghost" onclick="expandAll(false)">إغلاق كل الحلول</button>
+    </div>
+  </div>
+</section>
+
 <main>
 
-  <!-- ====== صفحة 8 (الصق كودنا الجاهز هنا) ====== -->
+  <!-- =========================
+       صفحة 8
+  ========================== -->
   <section class="page" id="p8">
-    <div class="pageHeader"><h2>الصفحة ٨</h2></div>
-    <div class="pageBody">
-      <!-- PASTE_PAGE_8_HERE -->
+    <div class="pageHeader">
+      <h3>الصفحة ٨</h3>
+      <div class="meta">ترقيم داخلي فقط (س١، س٢...)</div>
     </div>
+
+    <!-- س1 -->
+    <div class="q">
+      <div class="qTitle">
+        <h4>السؤال ١</h4>
+        <span class="badge">اختر الإجابة الصحيحة</span>
+      </div>
+      <div class="prompt">
+        ✍️ ضع نص السؤال هنا كما في الورقة (من الصفحة ٨).
+      </div>
+
+      <details>
+        <summary>إظهار الحل</summary>
+        <div class="ans">
+          ✅ <b>الإجابة:</b> …………<br/>
+          ✅ <b>السبب المختصر:</b> …………<br/>
+          <div class="visual">
+            <div class="visualHead">شرح مرئي (مثال توضيحي)</div>
+            <div class="visualBody">
+              <div class="svgWrap">
+                <svg viewBox="0 0 520 180" role="img" aria-label="Relation mapping">
+                  <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <path d="M0,0 L10,3 L0,6 Z"></path>
+                    </marker>
+                  </defs>
+                  <rect x="40" y="25" width="160" height="130" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="320" y="25" width="160" height="130" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="120" y="50" text-anchor="middle" font-size="16">المجال</text>
+                  <text x="400" y="50" text-anchor="middle" font-size="16">المدى</text>
+
+                  <circle cx="90" cy="85" r="7"/>
+                  <circle cx="90" cy="120" r="7"/>
+                  <circle cx="90" cy="155" r="7"/>
+
+                  <circle cx="370" cy="90" r="7"/>
+                  <circle cx="370" cy="130" r="7"/>
+
+                  <path d="M98 85 C 190 85, 260 90, 362 90" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+                  <path d="M98 120 C 190 120, 260 130, 362 130" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+                  <path d="M98 155 C 190 155, 260 130, 362 130" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+                </svg>
+              </div>
+              <div style="color:#6b7280; font-size:13px; margin-top:6px;">
+                مثال يوضح “متعدد إلى واحد” (أكثر من عنصر في المجال يذهب لنفس عنصر في المدى).
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <!-- س2 -->
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٢</h4><span class="badge">اختر</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details><summary>إظهار الحل</summary><div class="ans">✅ الإجابة: …………</div></details>
+    </div>
+
+    <!-- س3 ... -->
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٣</h4><span class="badge">اختر</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details><summary>إظهار الحل</summary><div class="ans">✅ الإجابة: …………</div></details>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٤</h4><span class="badge">اختر</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details><summary>إظهار الحل</summary><div class="ans">✅ الإجابة: …………</div></details>
+    </div>
+
   </section>
 
-  <!-- ====== صفحة 9 (الصق كودنا الجاهز هنا) ====== -->
+  <!-- =========================
+       صفحة 9 (أضفنا تركيز مرئي)
+  ========================== -->
   <section class="page" id="p9">
-    <div class="pageHeader"><h2>الصفحة ٩</h2></div>
-    <div class="pageBody">
-      <!-- PASTE_PAGE_9_HERE -->
+    <div class="pageHeader">
+      <h3>الصفحة ٩</h3>
+      <div class="meta">شرح مرئي + اختبار رأسي/أفقي</div>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ١</h4><span class="badge">علاقات</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+
+      <details>
+        <summary>إظهار الحل + شرح مرئي متحرك</summary>
+        <div class="ans">
+          ✅ <b>الفكرة:</b> نستخدم الاختبار المناسب (رأسي للدالة، أفقي لواحد-لواحد).<br/><br/>
+
+          <div class="visual">
+            <div class="visualHead">رسم توضيحي (اضغط تشغيل)</div>
+            <div class="visualBody">
+              <div class="btnRow">
+                <button class="btn" onclick="playLineTest()">تشغيل الحركة</button>
+                <button class="btn ghost" onclick="resetLineTest()">إعادة</button>
+              </div>
+
+              <div class="svgWrap" style="margin-top:10px;">
+                <svg id="lineTestSvg" viewBox="0 0 520 260">
+                  <!-- axes -->
+                  <path d="M60 220 L500 220" stroke="#cbd5e1" stroke-width="2"/>
+                  <path d="M280 30 L280 240" stroke="#cbd5e1" stroke-width="2"/>
+
+                  <!-- curve (parabola-like) -->
+                  <path d="M130 80 C 220 240, 340 240, 430 80" fill="none" stroke="#111827" stroke-width="3"/>
+
+                  <!-- moving line -->
+                  <line id="testLine" x1="90" y1="140" x2="470" y2="140" stroke="#ef4444" stroke-width="3" stroke-dasharray="7 6" opacity="0.9"/>
+                  <text x="90" y="30" font-size="14" fill="#6b7280">الخط المتحرك = اختبار أفقي (واحد-لواحد)</text>
+                </svg>
+              </div>
+              <div style="color:#6b7280; font-size:13px; margin-top:6px;">
+                إذا قطع المنحنى في نقطتين أو أكثر ⇒ ليس واحدًا إلى واحد.
+              </div>
+            </div>
+          </div>
+
+          ✅ <b>الإجابة النهائية:</b> ………… (ضعها هنا)
+        </div>
+      </details>
     </div>
   </section>
 
-  <!-- ====== صفحة 10 (الصق كودنا الجاهز هنا) ====== -->
+  <!-- =========================
+       صفحة 10
+  ========================== -->
   <section class="page" id="p10">
-    <div class="pageHeader"><h2>الصفحة ١٠</h2></div>
-    <div class="pageBody">
-      <!-- PASTE_PAGE_10_HERE -->
+    <div class="pageHeader">
+      <h3>الصفحة ١٠</h3>
+      <div class="meta">تركيب دوال (مرئي + جبري)</div>
     </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ١</h4><span class="badge">تركيب</span></div>
+      <div class="prompt">✍️ ضع نص السؤال هنا.</div>
+      <details>
+        <summary>إظهار الحل</summary>
+        <div class="ans">
+          ✅ <b>قاعدة مهمة:</b> \\, (د∘هـ)(س) = د(هـ(س))<br/><br/>
+          ✅ ضع الحل هنا خطوة خطوة.  
+        </div>
+      </details>
+    </div>
+
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ٤ (مهم)</h4><span class="badge">حل جبري مفصل + طريقة التعويض</span></div>
+      <div class="prompt">
+        ✍️ ضع نص السؤال الرابع هنا (كما في ورقتك).
+      </div>
+
+      <details open>
+        <summary>إظهار الحل (طريقتين)</summary>
+        <div class="ans">
+
+          <div class="grid2">
+            <div>
+              <b>الطريقة (١): كتابة تركيب الدالتين مباشرة</b><br/>
+              1) نكتب: \\, (د∘هـ)(س)=د(هـ(س))<br/>
+              2) نعوّض عن هـ(س) داخل د(س).<br/>
+              3) نبسّط ثم نعوّض س بالقيمة المطلوبة.<br/><br/>
+              ✅ <b>الحل:</b> ضع خطواتك هنا.
+            </div>
+
+            <div>
+              <b>الطريقة (٢): التعويض أولاً ثم تطبيق د</b><br/>
+              1) احسب هـ(القيمة) أولاً.<br/>
+              2) الناتج أدخله في د(…):<br/>
+              \\, (د∘هـ)(٣)=د(هـ(٣))<br/><br/>
+              ✅ <b>الحل:</b> ضع خطواتك هنا.
+            </div>
+          </div>
+
+          <div class="visual" style="margin-top:12px;">
+            <div class="visualHead">مخطط سريع للفكرة</div>
+            <div class="visualBody">
+              <div class="svgWrap">
+                <svg viewBox="0 0 520 120">
+                  <defs>
+                    <marker id="a2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <path d="M0,0 L10,3 L0,6 Z"></path>
+                    </marker>
+                  </defs>
+                  <rect x="40" y="35" width="120" height="50" rx="14" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="200" y="35" width="120" height="50" rx="14" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="360" y="35" width="120" height="50" rx="14" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="100" y="67" text-anchor="middle" font-size="16">س</text>
+                  <text x="260" y="67" text-anchor="middle" font-size="16">هـ(س)</text>
+                  <text x="420" y="67" text-anchor="middle" font-size="16">د(هـ(س))</text>
+                  <path d="M160 60 L200 60" fill="none" stroke="#111827" stroke-width="3" marker-end="url(#a2)"/>
+                  <path d="M320 60 L360 60" fill="none" stroke="#111827" stroke-width="3" marker-end="url(#a2)"/>
+                  <text x="180" y="30" font-size="13" fill="#6b7280">تطبيق هـ</text>
+                  <text x="340" y="30" font-size="13" fill="#6b7280">ثم تطبيق د</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
   </section>
 
-  <!-- ====== صفحات 11–18 (جاهزة نكملها بعد ما ترفع الصور/النص) ====== -->
-  <section class="page" id="p11"><div class="pageHeader"><h2>الصفحة ١١</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p12"><div class="pageHeader"><h2>الصفحة ١٢</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p13"><div class="pageHeader"><h2>الصفحة ١٣</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p14"><div class="pageHeader"><h2>الصفحة ١٤</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p15"><div class="pageHeader"><h2>الصفحة ١٥</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p16"><div class="pageHeader"><h2>الصفحة ١٦</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p17"><div class="pageHeader"><h2>الصفحة ١٧</h2></div><div class="pageBody"><!-- TODO --></div></section>
-  <section class="page" id="p18"><div class="pageHeader"><h2>الصفحة ١٨</h2></div><div class="pageBody"><!-- TODO --></div></section>
+  <!-- =========================
+       صفحات 11 إلى 18 (هياكل جاهزة)
+       فقط انسخ نص كل سؤال من الورقة والصقه
+  ========================== -->
+  <section class="page" id="p11">
+    <div class="pageHeader"><h3>الصفحة ١١</h3><div class="meta">ضع نص الأسئلة ثم الحلول</div></div>
+
+    <!-- مثال سؤال مع متجه عمودي -->
+    <div class="q">
+      <div class="qTitle"><h4>السؤال ١</h4><span class="badge">متجه</span></div>
+      <div class="prompt">
+        ✍️ ضع نص السؤال هنا (لو فيه متجه اكتب داخل حلّك مثل: \\(\\begin{pmatrix}س\\\\ص\\end{pmatrix}\\))
+      </div>
+      <details><summary>إظهار الحل</summary>
+        <div class="ans">
+          ✅ مثال شكل المتجه المطلوب:
+          <div class="prompt" style="margin-top:8px;">
+            \\(\\begin{pmatrix} س \\\\ ص \\end{pmatrix}\\)
+          </div>
+          ✅ ضع الحل هنا…
+        </div>
+      </details>
+    </div>
+
+    <div class="q"><div class="qTitle"><h4>السؤال ٢</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ٣</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p12"><div class="pageHeader"><h3>الصفحة ١٢</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p13"><div class="pageHeader"><h3>الصفحة ١٣</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p14"><div class="pageHeader"><h3>الصفحة ١٤</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p15"><div class="pageHeader"><h3>الصفحة ١٥</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p16"><div class="pageHeader"><h3>الصفحة ١٦</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p17"><div class="pageHeader"><h3>الصفحة ١٧</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
+
+  <section class="page" id="p18"><div class="pageHeader"><h3>الصفحة ١٨</h3><div class="meta">…</div></div>
+    <div class="q"><div class="qTitle"><h4>السؤال ١</h4><span class="badge">…</span></div><div class="prompt">✍️ النص…</div><details><summary>إظهار الحل</summary><div class="ans">✅ …</div></details></div>
+  </section>
 
 </main>
 
+<div class="foot">
+  <button class="float" onclick="window.scrollTo({top:0, behavior:'smooth'})">أعلى</button>
+</div>
+
 <script>
+  // Render KaTeX
   window.addEventListener("load", () => {
-    if (window.renderMathInElement) {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: "\\(", right: "\\)", display: false},
-          {left: "\\[", right: "\\]", display: true}
-        ],
-        throwOnError: false
-      });
-    }
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\\\(", right: "\\\\)", display: false},
+        {left: "\\\\[", right: "\\\\]", display: true}
+      ],
+      throwOnError: false
+    });
   });
+
+  function expandAll(open){
+    document.querySelectorAll("details").forEach(d => d.open = open);
+  }
+
+  // Simple animated horizontal line for line test
+  let anim = null;
+  function playLineTest(){
+    const line = document.getElementById("testLine");
+    if(!line) return;
+    resetLineTest();
+    let y = 90;
+    anim = setInterval(() => {
+      y += 2;
+      line.setAttribute("y1", y);
+      line.setAttribute("y2", y);
+      if(y >= 195){ clearInterval(anim); anim=null; }
+    }, 16);
+  }
+  function resetLineTest(){
+    const line = document.getElementById("testLine");
+    if(!line) return;
+    if(anim){ clearInterval(anim); anim=null; }
+    line.setAttribute("y1", 140);
+    line.setAttribute("y2", 140);
+  }
 </script>
 
 </body>
